@@ -1,0 +1,10 @@
+
+.ConditionDisplay {
+	color: #eeeeee;
+	font-size: 24pt;
+	margin: 0.5rem 1rem 0.5rem 1rem;
+	padding: 0 0 0.5rem 0;
+	border: 2px #eeeeee solid;
+	border-width: 0 0 2px 0;
+	text-align: center;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import GeolocationService from '../service/Geolocation.js';
-import Summary from './Summary.js';
-//import DetailPanel from './DetailPanel.js';
+import GeolocationService from '../../service/Geolocation.js';
+import Summary from '../../Summary/container/Summary.js';
+//import DetailPanel from '../../DetailPanel/container/DetailPanel.js';
 
 const ConditionPanel = () => {
   return (

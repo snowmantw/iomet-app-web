@@ -77,9 +77,11 @@ class Resucks {
         });
       } else if (effect) {
         // Effect renderer.
-        const unwrappedResult = await effect(effect.renderer);
-        nextSignal.payload = unwrappedResult;
-        if (nextSignal) { this.emit(_containerInstance, nextSignal); }
+        const unwrappedResult = await effect(effect.renderer, transformed);
+        if (nextSignal) {
+          nextSignal.payload = unwrappedResult;
+          this.emit(_containerInstance, nextSignal);
+        }
       }
     });
   }
@@ -98,7 +100,11 @@ class Resucks {
     const queried = [];
     for (let { keyPath } of queries) {
       let rr = store.getIn(keyPath);
-      queried.unshift(rr.toJS());
+      if (!rr.toJS) {
+        console.warn('Not immutable object in store', rr)
+      } else {
+        queried.unshift(rr.toJS());
+      }
     }
     return queried;
   }

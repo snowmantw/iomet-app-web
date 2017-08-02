@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import ConditionPanel from './container/ConditionPanel.js';
+import ConditionPanel from '../ConditionPanel/container/ConditionPanel.js';
 
-import './color.css';
-import './font.css';
+import '../color.css';
+import '../font.css';
 import './App.css';
 
 class App extends Component {

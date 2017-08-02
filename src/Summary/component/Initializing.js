@@ -1,5 +1,5 @@
 import React from 'react';
-import './SummaryInitializing.css';
+import './Initializing.css';
 
 const SummaryInitializing = () => {
   return (<div className="SummaryInitializing"> Initializing... </div>);
