@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ConditionPanel from '../ConditionPanel/container/ConditionPanel.js';
+import Board from '../Board/container/Board.js'
 
 import '../color.css';
 import '../font.css';
@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-				<ConditionPanel />
+        <Board />
       </div>
     );
   }
