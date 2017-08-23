@@ -15,7 +15,7 @@ const Board = () => {
 }
 
 const Signals = {
-  ConditionPanelClicked: { name: 'condition-panel-clicked', host: Board,
+  PanelClicked: { name: 'panel-clicked', host: Board,
     payload: { target: PropTypes.object }
   }
 }
