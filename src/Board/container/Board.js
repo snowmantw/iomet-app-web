@@ -8,15 +8,21 @@ const Board = () => {
   const routerDefault = Resucks.route(ResucksSignals.Mount)
     .render(BoardComponent);
 
+  const routerBoardClicked = Resucks.route(Signals.PanelClicked)
+    .query(Signals.PanelClicked)
+    .transformer((target) => { return { panelClicked: target }; })
+    .render(BoardComponent);
+
   const result = Resucks.instance().party(Board)
     .contract(routerDefault)
+    .contract(routerBoardClicked)
     .done();
   return result;
 }
 
 const Signals = {
   PanelClicked: { name: 'panel-clicked', host: Board,
-    payload: { target: PropTypes.object }
+    payload: { panel: PropTypes.object }
   }
 }
 

@@ -5,15 +5,27 @@ import { Signals as BoardSignals } from '../container/Board.js';
 
 import './Board.css';
 
-const Board = () => {
+const Board = (prop) => {
+
+  let conditionalPanel = null;
+  if (prop && prop.panelClicked) {
+    console.log('panel clicked: todo: add the handlers.');
+    conditionalPanel = <ConditionPanel id="conditional-panel" />;
+  } else {
+    conditionalPanel = <ConditionPanel id="conditional-panel" />;
+  }
+
   return (
     <div className="Board">
 			<div onClick={ (e) => {
-        Resucks.instance().emit(Board,
-					Object.assign({ panel: e.currentTarget.firstElementChild },
-          BoardSignals.PanelClicked))
+        const signal =
+					Object.assign({}, BoardSignals.PanelClicked, {
+            payload: { panel: e.currentTarget.firstElementChild }
+          });
+          Resucks.instance().emit(Board, signal);
       }} >
-			<ConditionPanel />
+
+      { conditionalPanel }
 			</div> 
     </div>
   );
