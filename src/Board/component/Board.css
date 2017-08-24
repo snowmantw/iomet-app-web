@@ -2,3 +2,8 @@
 .Board {
   
 }
+
+.Board .PanelRow {
+  /* for positioning handlers in relative*/
+  position: relative;
+}

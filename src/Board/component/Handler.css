@@ -1,0 +1,10 @@
+
+.Handler {
+	font-size: 20pt;
+	color: white;
+
+	/* for "floating" in the panel row */
+	position: absolute;
+	right: 1rem;
+	top: 0; 
+}
