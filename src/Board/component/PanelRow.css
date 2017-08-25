@@ -1,0 +1,6 @@
+
+.PanelRow {
+  /* for positioning handlers in relative*/
+  position: relative;
+  min-height: 5.5rem;
+}

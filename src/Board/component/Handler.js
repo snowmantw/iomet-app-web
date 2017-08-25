@@ -4,12 +4,13 @@ import Board, { Signals as BoardSignals } from '../container/Board.js';
 
 import './Handler.css';
 
-const Handler = () => {
+const Handler = (prop) => {
   return (
     <div className="Handler" onClick={ (e) => {
       const signal =
         Object.assign({}, BoardSignals.HandlerClicked, {
-          payload: { remove: e.target.classList.contains('HandlerRemove'),
+          payload: { panelId: prop.panelId, // Represent the panel id inside the same row.
+                     remove: e.target.classList.contains('HandlerRemove'),
                      attach: e.target.classList.contains('HandlerAttach')
           }
         });

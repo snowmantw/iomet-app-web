@@ -1,37 +1,20 @@
 import React from 'react';
-import Resucks from '../../lib/Resucks.js';
-import ConditionPanel from '../../ConditionPanel/container/ConditionPanel.js'
-import { Signals as BoardSignals } from '../container/Board.js';
-import Handler from './Handler.js';
+import PanelRow from './PanelRow.js';
 
 import './Board.css';
 
+
+/**
+ * Will render multiple panels in row according to `prop.rows`.
+ */
 const Board = (prop) => {
 
-  let handler = null;
-  let conditionalPanel = null;
-  if (prop && prop.panelClicked) {
-    conditionalPanel = <ConditionPanel id="conditional-panel" />;
-    handler = <Handler />;
-  } else {
-    conditionalPanel = <ConditionPanel id="conditional-panel" />;
-  }
-
+  const rowElements = prop.rows.map((row) => {
+    return (<PanelRow panel={row.panel} handler={row.handler} key={row.id} id={row.id} />);
+  });
   return (
     <div className="Board">
-      <div className="PanelRow">
-			<div onClick={ (e) => {
-        const signal =
-					Object.assign({}, BoardSignals.PanelClicked, {
-            payload: { panel: e.currentTarget.firstElementChild }
-          });
-          Resucks.instance().emit(Board, signal);
-      }} >
-
-      { conditionalPanel }
-			</div> 
-      { handler }
-      </div>
+      { rowElements }
     </div>
   );
 };
